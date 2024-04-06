@@ -19,39 +19,39 @@ mongoose.connect('mongodb+srv://zshekhaliya:6KEF6ekl5D3PAZ0T@cluster0.7lqrzyu.mo
     .catch(err => console.error("MongoDB connection error:", err));
 
 // Product
-app.post("/api/products", productController.createProduct);
-app.get("/api/products", productController.getAllProducts);
-app.get("/api/products/:id", productController.getProductById);
-app.put("/api/products/:id", productController.updateProduct);
-app.delete("/api/products/:id", productController.deleteProduct);
+app.post("/api/products/createProduct", productController.createProduct);
+app.get("/api/products/getProducts", productController.getAllProducts);
+app.get("/api/products/getProduct/:id", productController.getProductById);
+app.put("/api/products/updateProduct/:id", productController.updateProduct);
+app.delete("/api/products/deleteProduct/:id", productController.deleteProduct);
 
 // User
-app.get("/api/users", userController.getAllUsers);
-app.get("/api/users/:id", userController.getUserById);
-app.post("/api/users", userController.createUser);
-app.put("/api/users/:id", userController.updateUser);
-app.delete("/api/users/:id", userController.deleteUser);
+app.get("/api/users/getUsers", userController.getAllUsers);
+app.get("/api/users/getUsers/:id", userController.getUserById);
+app.post("/api/users/createUsers", userController.createUser);
+app.put("/api/users/updateUsers/:id", userController.updateUser);
+app.delete("/api/users/deleteUsers/:id", userController.deleteUser);
 
 // Comments
-app.get("/api/comments", commentController.getAllComments);
-app.get("/api/comments/:id", commentController.getCommentById);
-app.post("/api/comments", commentController.createComment);
-app.put("/api/comments/:id", commentController.updateComment);
-app.delete("/api/comments/:id", commentController.deleteComment);
+app.get("/api/comments/getComments", commentController.getAllComments);
+app.get("/api/comments/getComments/:id", commentController.getCommentById);
+app.post("/api/comments/addComments", commentController.createComment);
+app.put("/api/comments/updateComments/:id", commentController.updateComment);
+app.delete("/api/comments/deleteComments/:id", commentController.deleteComment);
 
 // Cart
-app.get("/api/cart", cartController.getAllCarts);
-app.get("/api/cart/:id", cartController.getCartById);
-app.post("/api/cart", cartController.createCart);
-app.put("/api/cart/:id", cartController.updateCart);
-app.delete("/api/cart/:id", cartController.deleteCart);
+app.get("/api/cart/getCart", cartController.getAllCarts);
+app.get("/api/cart/getCart/:id", cartController.getCartById);
+app.post("/api/cart/createCart", cartController.createCart);
+app.put("/api/cart/updateCart/:id", cartController.updateCart);
+app.delete("/api/cart/deleteCart/:id", cartController.deleteCart);
 
 //Order
-app.get("/api/orders", orderController.getAllOrders);
-app.get("/api/orders/:id", orderController.getOrderById);
-app.post("/api/orders", orderController.createOrder);
-app.put("/api/orders/:id", orderController.updateOrder);
-app.delete("/api/orders/:id", orderController.deleteOrder);
+app.get("/api/orders/getOrder", orderController.getAllOrders);
+app.get("/api/orders/getOrder/:id", orderController.getOrderById);
+app.post("/api/orders/createOrder", orderController.createOrder);
+app.put("/api/orders/updateOrder/:id", orderController.updateOrder);
+app.delete("/api/orders/deleteOrder/:id", orderController.deleteOrder);
 
 module.exports = app;
 // Start the server

@@ -32,7 +32,7 @@ exports.createCart = async (req, res) => {
             cartId: cartCount + 1
         });
         await cart.save();
-        res.status(201).send(cart);
+        res.status(201).send({ message: 'Cart created successfully', cart });
     } catch (error) {
         res.status(400).send({ error: 'Bad Request' });
     }
@@ -54,7 +54,7 @@ exports.updateCart = async (req, res) => {
 
         await cart.save();
 
-        res.send(cart);
+        res.send({ message: 'Cart updated successfully', cart });
     } catch (error) {
         res.status(500).send({ error: 'Internal Server Error' });
     }
@@ -67,7 +67,7 @@ exports.deleteCart = async (req, res) => {
         if (!cart) {
             return res.status(404).send("Cart not found");
         }
-        res.send(cart);
+        res.send({ message: 'Cart deleted successfully', cart });
     } catch (error) {
         res.status(500).send({ error: 'Internal Server Error' });
     }
