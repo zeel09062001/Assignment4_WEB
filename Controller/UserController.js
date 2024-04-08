@@ -6,7 +6,7 @@ exports.getAllUsers = async (req, res) => {
         const users = await User.find();
         res.send(users);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).send("Error fetching users: " + error.message);
     }
 };
 
@@ -19,7 +19,7 @@ exports.getUserById = async (req, res) => {
         }
         res.send(user);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).send("Error fetching user: " + error.message);
     }
 };
 
@@ -34,7 +34,7 @@ exports.createUser = async (req, res) => {
         await user.save();
         res.status(201).send(user);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).send("Error creating user: " + error.message);
     }
 };
 
@@ -56,19 +56,18 @@ exports.updateUser = async (req, res) => {
 
         res.send(user);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).send("Error updating user: " + error.message);
     }
 };
 
-// Delete a user by ID
 exports.deleteUser = async (req, res) => {
     try {
         const user = await User.findOneAndDelete({ userId: req.params.id });
         if (!user) {
             return res.status(404).send("User not found");
         }
-        res.send(user);
+        res.send("User deleted successfully");
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).send("Error deleting user: " + error.message);
     }
 };

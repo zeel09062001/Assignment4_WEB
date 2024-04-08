@@ -1,75 +1,68 @@
 const Cart = require('../Models/Cart');
 
-// Get all carts
 exports.getAllCarts = async (req, res) => {
     try {
         const carts = await Cart.find();
         res.send(carts);
     } catch (error) {
-        res.status(500).send({ error: 'Internal Server Error' });
+        handleServerError(res, error);
     }
 };
 
-// Get a cart by ID
 exports.getCartById = async (req, res) => {
     try {
         const cart = await Cart.findById(req.params.id);
         if (!cart) {
-            return res.status(404).send("Cart not found");
+            return res.status(404).send({ error: "Cart not found" });
         }
         res.send(cart);
     } catch (error) {
-        res.status(500).send({ error: 'Internal Server Error' });
+        handleServerError(res, error);
     }
 };
 
-// Create a new cart
 exports.createCart = async (req, res) => {
     try {
-        const cartCount = await Cart.countDocuments();
-        const cart = new Cart({
-            ...req.body,
-            cartId: cartCount + 1
-        });
+        const cart = new Cart(req.body);
         await cart.save();
         res.status(201).send({ message: 'Cart created successfully', cart });
     } catch (error) {
-        res.status(400).send({ error: 'Bad Request' });
+        handleServerError(res, error);
     }
 };
 
-// Update a cart by cartId
 exports.updateCart = async (req, res) => {
     try {
-        const cartId = req.params.id; 
+        const cartId = req.params.id;
         const updatedData = req.body;
-        let cart = await Cart.findOne({ cartId: cartId });
+        const cart = await Cart.findOneAndUpdate({ cartId: cartId }, updatedData, { new: true });
 
         if (!cart) {
-            return res.status(404).send("Cart not found");
+            return res.status(404).send({ error: "Cart not found" });
         }
-        Object.assign(cart, updatedData);
-
-        await cart.save();
 
         res.send({ message: 'Cart updated successfully', cart });
     } catch (error) {
-        res.status(500).send({ error: 'Internal Server Error' });
+        handleServerError(res, error);
     }
 };
 
-// Delete a cart by cartId
 exports.deleteCart = async (req, res) => {
     try {
-        const cartId = req.params.id; 
+        const cartId = req.params.id;
         const cart = await Cart.findOneAndDelete({ cartId: cartId });
 
         if (!cart) {
-            return res.status(404).send("Cart not found");
+            return res.status(404).send({ error: "Cart not found" });
         }
 
         res.send({ message: 'Cart deleted successfully', cart });
     } catch (error) {
-        res.status(500).send({ error: 'Internal Server Error' });
+        handleServerError(res, error);
     }
 };
+
+function handleServerError(res, error) {
+    console.error(error);
+    res.status(500).send({ error: 'Internal Server Error' });
+}

@@ -44,7 +44,7 @@ exports.updateComment = async (req, res) => {
         const commentId = req.params.id;
         const updatedData = req.body;
 
-        let comment = await Comment.findOneAndUpdate({ commentId: commentId }, updatedData, { new: true });
+        let comment = await Comment.findOneAndUpdate({ _id: commentId }, updatedData, { new: true });
 
         if (!comment) {
             return res.status(404).send("Comment not found");
@@ -52,9 +52,11 @@ exports.updateComment = async (req, res) => {
 
         res.send({ message: 'Comment updated successfully', comment });
     } catch (error) {
-        res.status(500).send({ error: 'Internal Server Error' });
+        console.error(error);
+        res.status(500).send({ error: 'Comment updated successfully' });
     }
 };
+
 
 // Delete a comment by Id
 exports.deleteComment = async (req, res) => {

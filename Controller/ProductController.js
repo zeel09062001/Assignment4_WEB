@@ -67,7 +67,7 @@ exports.deleteProduct = async (req, res) => {
         if (!product) {
             return res.status(404).send();
         }
-        res.send(product);
+        res.send("Product deleted successfully");
     } catch (error) {
         res.status(500).send(error);
     }

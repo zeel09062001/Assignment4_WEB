@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
     orderId: { type: Number, unique: true, required: true },
-    userId: { type: Number, required: true }, // Assuming userId references the user who placed the order
+    userId: { type: Number, required: true }, 
     products: [{
-        productId: { type: String, required: true }, // Assuming productId references the products in the order
+        productId: { type: String, required: true }, 
         quantity: { type: Number, required: true }
     }],
     totalAmount: { type: Number, required: true },
