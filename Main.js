@@ -54,7 +54,6 @@ app.put("/api/orders/updateOrder/:id", orderController.updateOrder);
 app.delete("/api/orders/deleteOrder/:id", orderController.deleteOrder);
 
 module.exports = app;
-// Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

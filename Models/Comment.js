@@ -6,7 +6,6 @@ const commentSchema = new mongoose.Schema({
     rating: { type: Number, required: true },
     text: { type: String, required: true },
     images: [{ type: String }],
-    // Auto-incremented integer Id
     commentId: { type: Number, unique: true, required: true }
 });
 

@@ -60,6 +60,7 @@ exports.updateUser = async (req, res) => {
     }
 };
 
+//Delete User
 exports.deleteUser = async (req, res) => {
     try {
         const user = await User.findOneAndDelete({ userId: req.params.id });
