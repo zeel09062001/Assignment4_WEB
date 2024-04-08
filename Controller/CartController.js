@@ -38,18 +38,16 @@ exports.createCart = async (req, res) => {
     }
 };
 
-// Update a cart by ID
+// Update a cart by cartId
 exports.updateCart = async (req, res) => {
     try {
-        const cartId = req.params.id;
+        const cartId = req.params.id; 
         const updatedData = req.body;
-
-        let cart = await Cart.findById(cartId);
+        let cart = await Cart.findOne({ cartId: cartId });
 
         if (!cart) {
             return res.status(404).send("Cart not found");
         }
-
         Object.assign(cart, updatedData);
 
         await cart.save();
@@ -60,13 +58,16 @@ exports.updateCart = async (req, res) => {
     }
 };
 
-// Delete a cart by ID
+// Delete a cart by cartId
 exports.deleteCart = async (req, res) => {
     try {
-        const cart = await Cart.findByIdAndDelete(req.params.id);
+        const cartId = req.params.id; 
+        const cart = await Cart.findOneAndDelete({ cartId: cartId });
+
         if (!cart) {
             return res.status(404).send("Cart not found");
         }
+
         res.send({ message: 'Cart deleted successfully', cart });
     } catch (error) {
         res.status(500).send({ error: 'Internal Server Error' });
