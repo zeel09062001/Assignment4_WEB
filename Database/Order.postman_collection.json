@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "9195f7d4-8528-45de-a85b-09a97ab9a127",
+		"name": "Order",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31317395"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4040/api/orders/getOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"orders",
+						"getOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"orderId\": 1,\n    \"userId\": 123, \n    \"products\": [\n        {\n            \"productId\": \"abc123\", \n            \"quantity\": 2\n        },\n        {\n            \"productId\": \"def456\",\n            \"quantity\": 1\n        }\n    ],\n    \"totalAmount\": 150 \n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4040/api/orders/createOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"orders",
+						"createOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy 2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 123, \n    \"products\": [\n        {\n            \"productId\": \"Updated abc123\", \n            \"quantity\": 3\n        },\n        {\n            \"productId\": \"def456\", \n            \"quantity\": 2 \n        }\n    ],\n    \"totalAmount\": 250 \n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4040/api/orders/updateOrder/881",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"orders",
+						"updateOrder",
+						"881"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy 3",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4040/api/orders/deleteOrder/528",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"orders",
+						"deleteOrder",
+						"528"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

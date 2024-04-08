@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "8e31e6a1-77a6-4f02-a3eb-96018a3cbbb3",
+		"name": "Product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31317395"
+	},
+	"item": [
+		{
+			"name": "get product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4040/api/products/getProducts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"products",
+						"getProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Produt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"This is my Product of of user\",\n    \"image\": \"Shirt.jpg\",\n    \"pricing\": 99.99,\n    \"shippingCost\": 5.27\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4040/api/products/createProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"products",
+						"createProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update data",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Updated Zeel Product\",\n    \"image\": \"updated_image.jpg\",\n    \"pricing\": 109.99,\n    \"shippingCost\": 6.99\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4040/api/products/updateProduct/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"products",
+						"updateProduct",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4040/api/products/deleteProduct/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"products",
+						"deleteProduct",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

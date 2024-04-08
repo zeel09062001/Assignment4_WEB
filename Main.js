@@ -14,7 +14,7 @@ const PORT = 4040;
 app.use(bodyParser.json());
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://zshekhaliya:6KEF6ekl5D3PAZ0T@cluster0.7lqrzyu.mongodb.net/Web_Assignment4?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://Zeel:Zeelshekhaliya@cluster0.cyx7zp5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB atlas connection success"))
     .catch(err => console.error("MongoDB connection error:", err));
 

@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "b6f6f611-5ddc-45f1-8e2d-bc940416bbec",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31317395"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4040/api/users/getUsers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"users",
+						"getUsers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"zeel@gmail.com\",\n    \"password\": \"zeel\",\n    \"username\": \"zeel\",\n    \"purchaseHistory\": [\"Product1\", \"Product2\", \"Product3\"],\n    \"__v\": 0\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4040/api/users/createUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"users",
+						"createUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy 2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_id\": \"6614110c84605602737ea4dc\",\n    \"email\": \"zeelhS@gmail.com\",\n    \"password\": \"zeel Updated\",\n    \"username\": \"zeel\",\n    \"purchaseHistory\": [\n        \"Product1\",\n        \"Product2\",\n        \"Product3\"\n    ],\n    \"__v\": 0\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4040/api/users/updateUsers/660e054baf57d07489bd035d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"users",
+						"updateUsers",
+						"660e054baf57d07489bd035d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy 3",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"user_id\": 1,\n        \"email\": \"user1@example.com\",\n        \"password\": \"password123\",\n        \"username\": \"user1\",\n        \"shipping_address\": \"123 Main St, City, Country\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4040/api/users/deleteUsers/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"users",
+						"deleteUsers",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
