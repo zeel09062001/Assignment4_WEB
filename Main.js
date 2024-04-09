@@ -10,7 +10,6 @@ const orderController = require('./Controller/OrderController')
 const app = express();
 const PORT = 4040;
 
-// Middleware
 app.use(bodyParser.json());
 
 // MongoDB connection
